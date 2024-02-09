@@ -19,7 +19,7 @@ const FeedbackForm = () => {
     }));
   };
 
-   async function handleSubmit (e)  {
+   function handleSubmit (e)  {
     e.preventDefault();
     
     console.log(formData); 
