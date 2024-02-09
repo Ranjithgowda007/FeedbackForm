@@ -1,4 +1,4 @@
-// FeedbackForm.js
+
 import React, { useState } from 'react';
 import './FeedbackForm.css';
 
@@ -21,7 +21,7 @@ const FeedbackForm = () => {
 
    async function handleSubmit (e)  {
     e.preventDefault();
-    // Submit form data to backend
+    
     console.log(formData); 
     setFormData({
         rating1: 5, rating2:5, rating3: 5,
@@ -31,8 +31,6 @@ const FeedbackForm = () => {
     textArea: ''
     });
     
-
-    // For testing, you can replace this with your backend API call
   };
 
   return (
@@ -42,9 +40,8 @@ const FeedbackForm = () => {
         <label htmlFor="dropdown"><h5>How often do you visit?</h5></label>
         <select id="dropdown" name="dropdown" value={formData.dropdown} onChange={handleChange} className='my-4'>
           <option value='Regularly'>Regularly</option>
-          {/* <option value="option1">Regularly</option> */}
+         
           <option value='Occasionally'>Occasionally</option>
-          {/* <option value="option3">Option 3</option> */}
         </select>
       </div>
       <div className="form-group">
