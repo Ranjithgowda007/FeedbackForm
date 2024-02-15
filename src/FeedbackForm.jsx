@@ -1,4 +1,4 @@
-// FeedbackForm.js
+
 import React, { useState } from 'react';
 import './FeedbackForm.css';
 // import Dashboard from './Dashboard';
@@ -16,7 +16,6 @@ const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, s
 
    function handleSubmit (e)  {
     e.preventDefault();
-    // Submit form data to backend
     console.log(formData); 
     setSubmittedData([...submittedData, formData])
 
@@ -28,8 +27,6 @@ const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, s
     textArea: ''
     });
     
-
-    // For testing, you can replace this with your backend API call
   };
 
   return (
