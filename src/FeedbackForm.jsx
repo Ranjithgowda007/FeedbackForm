@@ -1,5 +1,5 @@
-
-import React from 'react';
+// FeedbackForm.js
+import React, { useState } from 'react';
 import './FeedbackForm.css';
 // import Dashboard from './Dashboard';
 
@@ -16,7 +16,7 @@ const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, s
 
    function handleSubmit (e)  {
     e.preventDefault();
-    alert("form submitted successfully", formData)
+    // Submit form data to backend
     console.log(formData); 
     setSubmittedData([...submittedData, formData])
 
@@ -29,7 +29,7 @@ const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, s
     });
     
 
-   
+    // For testing, you can replace this with your backend API call
   };
 
   return (
@@ -43,7 +43,7 @@ const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, s
         <label htmlFor="dropdown"><h5>How often do you visit?</h5></label>
         <select id="dropdown" name="dropdown" value={formData.dropdown} onChange={handleChange} className='my-4'>
           <option value='Regularly'>Regularly</option>
-     
+          {/* <option value="option1">Regularly</option> */}
           <option value='Occasionally'>Occasionally</option>
         </select>
       </div>
