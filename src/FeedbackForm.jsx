@@ -1,15 +1,10 @@
-// FeedbackForm.js
-import React, { useState } from 'react';
-import './FeedbackForm.css';
 
-const FeedbackForm = () => {
-  const [formData, setFormData] = useState({
-    rating1: 5, rating2:5, rating3:5,
-    checkbox: false,
-    dropdown: 'Regularly',
-    yesNo: '',
-    textArea: ''
-  });
+import React from 'react';
+import './FeedbackForm.css';
+// import Dashboard from './Dashboard';
+
+const FeedbackForm = ({formData, setFormData, submittedData, setSubmittedData, setShowFeedbacks}) => {
+  
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,12 +14,14 @@ const FeedbackForm = () => {
     }));
   };
 
-   async function handleSubmit (e)  {
+   function handleSubmit (e)  {
     e.preventDefault();
-    // Submit form data to backend
+    alert("form submitted successfully", formData)
     console.log(formData); 
+    setSubmittedData([...submittedData, formData])
+
     setFormData({
-        rating1: 5, rating2:5, rating3: 5,
+        rating1: 5, rating2: 5, rating3: 5,
     checkbox: false,
     dropdown: 'Regularly',
     yesNo: '',
@@ -32,19 +29,22 @@ const FeedbackForm = () => {
     });
     
 
-    // For testing, you can replace this with your backend API call
+   
   };
 
   return (
+   <>
+   <div className="m-4 bg-success w-50">
+        <h1 className="text-center color-white">Feedback Form</h1>
+      </div>
     <form onSubmit={handleSubmit} className="feedback-form">
 
 <div className="form-group rr p-4">
         <label htmlFor="dropdown"><h5>How often do you visit?</h5></label>
         <select id="dropdown" name="dropdown" value={formData.dropdown} onChange={handleChange} className='my-4'>
           <option value='Regularly'>Regularly</option>
-          {/* <option value="option1">Regularly</option> */}
+     
           <option value='Occasionally'>Occasionally</option>
-          {/* <option value="option3">Option 3</option> */}
         </select>
       </div>
       <div className="form-group">
@@ -90,6 +90,8 @@ const FeedbackForm = () => {
       </div>
       <button type="submit">Submit Feedback</button>
     </form>
+    {/* <Dashboard formData={formData}/> */}
+   </>
   );
 };
 
